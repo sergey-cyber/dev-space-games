@@ -18,8 +18,8 @@ jobs:
 
       - name: Set up Git config
         run: |
-          git config --global user.email "zenkovich_so@mail.ru"
           git config --global user.name "sergey-cyber"
+          git config --global user.email "zenkovich_so@mail.ru"
 
       - name: Install dependencies
         run: |
