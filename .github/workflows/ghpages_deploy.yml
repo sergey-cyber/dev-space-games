@@ -1,0 +1,34 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        app: ["find-twin"] # Список приложений
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          cd ${{ matrix.app }}
+          npm ci
+
+      - name: Build application
+        run: |
+          cd ${{ matrix.app }}
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          cd ${{ matrix.app }}
+          npx gh-pages -d dist -b gh-pages -o origin -r "https://github.com/sergey-cyber/dev-space-games" -p "/${{ matrix.app }}"
