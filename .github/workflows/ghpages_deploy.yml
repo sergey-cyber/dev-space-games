@@ -33,7 +33,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.DEPLOY_GH_PAGES }}
         run: |
           cd ${{ matrix.app }}
           npx gh-pages -d dist -b gh-pages -o origin -r "https://github.com/sergey-cyber/dev-space-games" -p "/${{ matrix.app }}"
