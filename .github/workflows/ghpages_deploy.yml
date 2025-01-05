@@ -36,4 +36,4 @@ jobs:
           GH_TOKEN: ${{ secrets.DEPLOY_GH_PAGES }}
         run: |
           cd ${{ matrix.app }}
-          npx gh-pages -d dist -b gh-pages -o origin -r "https://github.com/sergey-cyber/dev-space-games" -p "/${{ matrix.app }}"
+          npx gh-pages -d dist -b gh-pages -p "/${{ matrix.app }}"
