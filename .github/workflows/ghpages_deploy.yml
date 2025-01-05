@@ -37,4 +37,4 @@ jobs:
           GH_TOKEN: ${{ secrets.DEPLOY_GH_PAGES }}
         run: |
           cd ${{ matrix.app }}
-          npx gh-pages -d dist -b gh-pages -p "/${{ matrix.app }}"
+          npx gh-pages -d dist -b gh-pages -r origin -c "${GITHUB_REPOSITORY}" -p "/${{ matrix.app }}"
