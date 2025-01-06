@@ -37,4 +37,5 @@ jobs:
           GH_TOKEN: ${{ secrets.DEPLOY_GH_PAGES }}
         run: |
           cd ${{ matrix.app }}
-          npx gh-pages -d dist -b gh-pages -p "/${{ matrix.app }}"
+          npx gh-pages -d dist
+        # npx gh-pages -d dist -b gh-pages -p "/${{ matrix.app }}"
